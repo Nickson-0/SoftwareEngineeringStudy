@@ -15,7 +15,7 @@
     <script>
         
         const btnRepos = document.getElementById("btnRepos")
-        const Issues = document.getElementById("btnIssues")
+        const btnIssues = document.getElementById("btnIssues")
 
         const divResult = document.getElementById("divResult")
         btnRepos.addEventListener("click", getRepos)
@@ -50,6 +50,7 @@
                 divResult.appendChild(document.createElement("br"))
            })
         }
+
         function clear(){
                while (divResult.firstChild)
                divResult.removeChild(divResult.firstChild)
