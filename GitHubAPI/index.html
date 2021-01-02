@@ -12,6 +12,7 @@
 
     </div>
     <script>
+        const divResult = document.getElementById("divResult")
         const btnRepos = document.getElementById("btnRepos")
         btnRepos.addEventListener("click", getRepos)
         async function getRepos(){
@@ -19,7 +20,9 @@
            const response = await fetch(url)
            const result = await response.json()
 
-           result.items.forEach(i=>console.log(i.full_name))
+           result.items.forEach(i=>{
+            divResult.appendChild(document.createTextNode(i.fullname))
+           })
         }
 
     </script>
