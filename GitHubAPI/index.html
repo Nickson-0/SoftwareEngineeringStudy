@@ -49,7 +49,6 @@
                 const anchor = document.createElement("a")
                 anchor.href = i.html_url;
                 anchor.textContent = i.title;
-                divResult.appendChild(img)
                 divResult.appendChild(anchor)
                 divResult.appendChild(document.createElement("br"))
            })
@@ -66,6 +65,9 @@
                "headers" : headers
             })
 
+            const link = reponse.headers.get("link")
+            link.split(",")
+
             const result = await response.json()
 
             result.items.forEach(i=>{
@@ -75,7 +77,7 @@
                 img.style.height = "32px"
                 const anchor = document.createElement("a")
                 anchor.href = i.html_url;
-                anchor.textContent = i.commit.message;
+                anchor.textContent = i.commit.message.substr(0,120) + "....";
                 divResult.appendChild(img)
                 divResult.appendChild(anchor)
                 divResult.appendChild(document.createElement("br"))
